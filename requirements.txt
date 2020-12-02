@@ -9,3 +9,4 @@ databases==0.4.1
 python-sql==1.2.1
 postgres==3.0.0
 db.py==0.5.3
+translate==3.5.0
