@@ -97,4 +97,4 @@ def translate_text(message):
                              'Text length is too long.')
 
 if __name__ == '__main__':
-    bot.polling(none_stop=False)
+    bot.polling(none_stop=True)
