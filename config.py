@@ -1,2 +1,2 @@
-telegram_token = "1489698874:AAHmJQC_TQsi0eAP5lf_gjUBXFkUT32OGEk"
+telegram_token = "1453257064:AAG0e-Trhv6iUZiXTLYyeTV5p47r9YenlzQ"
 yandex_token = "trnsl.1.1.20201202T085752Z.a0c1dad52dc863ee.665f428e9506154a909415c3475855c93f4d4d85"
