@@ -32,6 +32,9 @@ async def is_register_admin(chat, user, client):
 
 @bot.message_handler(commands=['start'])
 def start_bot(message):
+    admin_list = bot.get_chat_administrators(message.chat_id)
+    if message.chat.type != "private" and message.from_user not in admin_list:
+         return
     if db.user_exist(message.chat.id):
         bot.send_message(message.chat.id, 'You have already started a conversation with this bot.\n'
                                           'Use to view a list of all commands '
@@ -64,6 +67,9 @@ def start_bot(message):
 
 @bot.message_handler(commands=['langs'])
 def change_langs(message):
+    admin_list = bot.get_chat_administrators(message.chat_id)
+    if message.chat.type != "private" and message.from_user not in admin_list:
+         return
     user_markup = types.ReplyKeyboardMarkup(resize_keyboard=True,
                                             one_time_keyboard=True)
     sorted_langs = sorted(db.langs.items(), key=lambda kv: kv[1])
@@ -83,6 +89,9 @@ def change_langs(message):
 
 @bot.message_handler(commands=['top_langs'])
 def change_langs(message):
+    admin_list = bot.get_chat_administrators(message.chat_id)
+    if message.chat.type != "private" and message.from_user not in admin_list:
+         return
     user_markup = types.ReplyKeyboardMarkup(resize_keyboard=True,
                                             one_time_keyboard=True)
     sorted_langs = sorted(db.top_langs.items(), key=lambda kv: kv[1])
@@ -107,6 +116,9 @@ def change_langs(message):
  
 @bot.message_handler(content_types=['text'])
 def translate_text(message):
+    admin_list = bot.get_chat_administrators(message.chat_id)
+    if message.chat.type != "private" and message.from_user not in admin_list:
+         return
     usr_lang = db.users_data[str(message.chat.id)]
     if len(message.text) >= 4050:
         bot.send_message(message.chat.id,
