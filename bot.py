@@ -13,8 +13,9 @@ bot = telebot.TeleBot(config.telegram_token)
 def start_bot(message):
     chat_type = message.chat.type
     if chat_type != "private":      
-        admin_list = bot.get_chat_administrators(message.chat.id)
-        if message.from_user.id not in admin_list:
+        admin = bot.get_chat_administrators(message.chat.id)
+        list = [i.user.id for i in admin]
+        if message.from_user.id not in list:
              return
     else:
         pass
@@ -52,8 +53,9 @@ def start_bot(message):
 def change_langs(message):
     chat_type = message.chat.type
     if chat_type != "private":      
-        admin_list = bot.get_chat_administrators(message.chat.id)
-        if message.from_user.id not in admin_list:
+        admin = bot.get_chat_administrators(message.chat.id)
+        list = [i.user.id for i in admin]
+        if message.from_user.id not in list:
              return
     else:
         pass
@@ -78,8 +80,9 @@ def change_langs(message):
 def change_langs(message):
     chat_type = message.chat.type
     if chat_type != "private":      
-        admin_list = bot.get_chat_administrators(message.chat.id)
-        if message.from_user.id not in admin_list:
+        admin = bot.get_chat_administrators(message.chat.id)
+        list = [i.user.id for i in admin]
+        if message.from_user.id not in list:
              return
     else:
         pass
@@ -109,8 +112,9 @@ def change_langs(message):
 def translate_text(message):
     chat_type = message.chat.type
     if chat_type != "private":      
-        admin_list = bot.get_chat_administrators(message.chat.id)
-        if message.from_user.id not in admin_list:
+        admin = bot.get_chat_administrators(message.chat.id)
+        list = [i.user.id for i in admin]
+        if message.from_user.id not in list:
              return
     else:
         pass
